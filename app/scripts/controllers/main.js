@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('whohasgotmyitemsApp')
+angular.module('whohasgotmyitemApp')
   .controller('MainCtrl', function ($scope) {
     $scope.items = [
         {

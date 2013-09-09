@@ -3,7 +3,7 @@
 describe('Controller: ShareCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('whohasgotmyitemsApp'));
+  beforeEach(module('whohasgotmyitemApp'));
 
   var ShareCtrl,
     scope;

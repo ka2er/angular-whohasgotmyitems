@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('whohasgotmyitemsApp', ['ui.bootstrap'])
+angular.module('whohasgotmyitemApp', ['ui.bootstrap'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
