@@ -1,20 +1,32 @@
-<form>
-    <fieldset>
-        <legend>Description du prêt</legend>
-        <label>Objet</label>
-        <input type="text" placeholder="Description">
+<form name="share" class="form-horizontal">
+    <legend>Description du prêt</legend>
+    <div class="control-group">
+        <label class="control-label">Objet</label>
+        <div class="controls">
 
-        <label>Emprunteur</label>
-        <input type="text" placeholder="A qui ?" list="contacts" name="who">
+            <input type="text" placeholder="Description" ng-model="item.name" required>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Emprunteur</label>
+        <div class="controls">
 
-        <datalist id="contacts">
-            <option value="Odile">
-            <option value="Seb">
-        </datalist>
+            <input type="text" placeholder="A qui ?" list="contacts" name="who" ng-model="item.who" ng-required="true">
 
-        <label>Date de retour</label>
-
-
-    </fieldset>
-
+            <datalist id="contacts">
+                <option value="Odile">
+                <option value="Seb">
+            </datalist>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Date de retour</label>
+        <div class="controls">
+            <input type="date" ng-model="item.returnDate" required>
+        </div>
+    </div>
+    <div class="form-actions">
+        <button class="btn btn-primary" ng-disabled="share.$invalid" ng-click="save()">Enregistrer</button>
+        <button class="btn" ng-click="cancel()">Annuler</button>
+    </div>
 </form>
