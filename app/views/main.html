@@ -6,6 +6,7 @@
     <tr>
         <th>Objet</th>
         <th>Nom</th>
+        <th>Date</th>
         <th></th>
     </tr>
     </thead>
@@ -13,6 +14,7 @@
     <tr ng-repeat="item in items">
         <td>{{item.name}}</td>
         <td>{{item.who}}</td>
+        <td><span class="label" ng-class="{'label-important': outdated(item.returnDate)}">{{item.returnDate}}</span></td>
         <td><button class="btn btn-info" ng-click="delete(item)"><i class="icon-check icon-white"></i> Retour</button></td>
     </tr>
     </tbody>
