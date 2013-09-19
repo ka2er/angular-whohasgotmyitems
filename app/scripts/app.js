@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('whohasgotmyitemApp', [])
+angular.module('whohasgotmyitemApp', ['mongolabResource'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

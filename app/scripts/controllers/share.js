@@ -1,17 +1,16 @@
 'use strict';
 
 angular.module('whohasgotmyitemApp')
-  .controller('ShareCtrl', function ($scope, $location) {
+  .controller('ShareCtrl', function ($scope, $location, Item) {
 
         $scope.item = {};
 
         // Disable weekend selection
 
         $scope.save = function(){
-          console.log($scope.item);
 
-
-            // @TODO : store it on the WEB !!! via a directive ???
+            Item.save($scope.item);
+            $location.path('/');
         };
 
         $scope.cancel = function() {

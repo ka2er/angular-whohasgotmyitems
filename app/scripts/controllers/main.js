@@ -1,8 +1,12 @@
 'use strict';
 
 angular.module('whohasgotmyitemApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.items = [
+  .controller('MainCtrl', function ($scope, Item) {
+       $scope.items = Item.query();
+
+        /*
+
+        $scope.items = [
         {
             name: 'wheel',
             who: 'odile',
@@ -15,4 +19,5 @@ angular.module('whohasgotmyitemApp')
             when: '123456789',
             categories: ['object']
         }    ];
+        */
   });
