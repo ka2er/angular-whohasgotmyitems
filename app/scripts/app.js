@@ -11,6 +11,10 @@ angular.module('whohasgotmyitemApp', ['mongolabResource'])
         templateUrl: 'views/share.html',
         controller: 'ShareCtrl'
       })
+      .when('/history', {
+        templateUrl: 'views/history.html',
+        controller: 'HistoryCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
