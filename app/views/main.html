@@ -1,5 +1,21 @@
 <h1>Prêts en cours</h1>
-<a class="btn btn-primary btn-large" href="#/share"><i class="icon-share icon-white"></i> Prêter</a>
-<p ng-repeat="item in items">
-   {{item.name}}
-</p>
+
+<table class="table table-striped">
+    <!--<caption>Prêts en cours</caption>-->
+    <thead>
+    <tr>
+        <th>Objet</th>
+        <th>Nom</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in items">
+        <td>{{item.name}}</td>
+        <td>{{item.who}}</td>
+        <td><button class="btn btn-info" ng-click="delete(item)"><i class="icon-check icon-white"></i> Retour</button></td>
+    </tr>
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="#/share"><i class="icon-share icon-white"></i> Prêter</a>
