@@ -1,12 +1,18 @@
-<h1>Prêts en cours</h1>
+<h1 class="text-center">Prêts en cours</h1>
 
-<table class="table table-striped">
+<a class="btn btn-primary pull-left" href="#/share"><i class="icon-plus icon-white"></i> Nouveau</a>
+<button class="btn pull-right" ng-click="showHistory()" ng-disabled="!hasHistory()"><i class="icon-time"></i> Historique</button>
+
+
+
+<table ng-show="items.length" class="table table-striped">
     <!--<caption>Prêts en cours</caption>-->
     <thead>
     <tr>
         <th>Objet</th>
         <th>Nom</th>
-        <th>Date</th>
+        <th>Date Prêt</th>
+        <th>Date Retour</th>
         <th></th>
     </tr>
     </thead>
@@ -14,11 +20,10 @@
     <tr ng-repeat="item in items | filter:notArchived() ">
         <td>{{item.name}}</td>
         <td>{{item.who}}</td>
-        <td><span class="label" ng-class="{'label-important': outdated(item.returnDate)}">{{item.returnDate}}</span></td>
+        <td><span class="label">{{item.shareDate | date:dateFormat}}</span></td>
+        <td><span class="label" ng-class="{'label-important': outdated(item.returnDate)}">{{item.returnDate| date:dateFormat}}</span></td>
         <td><button class="btn btn-info pull-right" ng-click="archive(item)"><i class="icon-check icon-white"></i> Retour</button></td>
     </tr>
     </tbody>
 </table>
 
-<a class="btn btn-primary btn-block" href="#/share"><i class="icon-share icon-white"></i> Prêter</a>
-<a class="btn btn-block" href="#/history"><i class="icon-trash"></i> Historique</a>

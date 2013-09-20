@@ -1,18 +1,22 @@
-<h1>Historique</h1>
+<h1 class="text-center">Historique</h1>
+<a class="btn" href="#/"><li class="icon-home"></li> Accueil</a>
 
 <table class="table table-striped">
     <thead>
     <tr>
         <th>Objet</th>
         <th>Nom</th>
+        <th>Récupéré le</th>
+        <th></th>
     </tr>
     </thead>
     <tbody class="muted">
     <tr ng-repeat="item in items">
-        <td><s>{{item.name}}</s></td>
-        <td><s>{{item.who}}</s></td>
+        <td>{{item.name}}</td>
+        <td>{{item.who}}</td>
+        <td>{{item.archivedDate | date:dateFormat}}</td>
+        <td><buntton class="btn btn-danger pull-right" ng-click="remove(item)"><li class="icon-white icon-trash"></li> Suppression</buntton></td>
     </tr>
     </tbody>
 </table>
 
-<a class="btn btn-block" href="#/">Retour</a>

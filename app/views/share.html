@@ -1,5 +1,7 @@
+<h1 class="text-center">Nouveau prêt</h1>
+
 <form name="share" class="form-horizontal">
-    <legend>Description du prêt</legend>
+    <legend>Détails</legend>
     <div class="control-group">
         <label class="control-label">Objet</label>
         <div class="controls">
@@ -20,9 +22,10 @@
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label">Date de retour</label>
+        <label class="control-label">Durée</label>
         <div class="controls">
-            <input type="date" ng-model="item.returnDate" required>
+            <input type="number" ng-model="returnDelay" required>
+            <span class="help-inline">jour(s)</span>
         </div>
     </div>
     <div class="form-actions">

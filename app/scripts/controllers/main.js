@@ -1,29 +1,45 @@
 'use strict';
 
 angular.module('whohasgotmyitemApp')
-  .controller('MainCtrl', function ($scope, Item) {
-       $scope.items = Item.query();
+  .controller('MainCtrl', function ($scope, Item, $location) {
+    $scope.items = Item.query();
 
-        $scope.notArchived = function() {
-            return function(item) {
-                return !item.archived || item.archived !== true;
-            };
+    $scope.notArchived = function() {
+        return function(item) {
+            return !item.archived || item.archived !== true;
         };
+    };
 
-        $scope.outdated = function(date) {
-            var now = new Date();
-            var y = +date.substr(0, 4);
-            var m = +date.substr(5, 2);
-            var d = +date.substr(8, 2);
+    $scope.outdated = function(date) {
 
-            return (y < now.getFullYear()
-                || m < (now.getMonth()+1)
-                || d < now.getDate()
-             );
-        };
+        var now = new Date();
+        var y = +date.substr(0, 4);
+        var m = +date.substr(5, 2);
+        var d = +date.substr(8, 2);
 
-        $scope.archive = function(item) {
-            item.archived = true;
-            item.update();
-        };
+        return (y < now.getFullYear()
+            || m < (now.getMonth()+1)
+            || d < now.getDate()
+         );
+    };
+
+    $scope.archive = function(item) {
+        item.archivedDate = new Date();
+        item.archived = true;
+        item.update();
+    };
+
+    $scope.showHistory = function() {
+        $location.path('/history')
+    };
+
+    $scope.hasHistory = function() {
+
+        var ret = false;
+        $scope.items.forEach(function(item) {
+            ret |= item.archived && item.archived === true;
+        });
+
+        return ret;
+    };
   });
