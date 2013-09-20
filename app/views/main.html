@@ -11,14 +11,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="item in items">
+    <tr ng-repeat="item in items | filter:notArchived() ">
         <td>{{item.name}}</td>
         <td>{{item.who}}</td>
         <td><span class="label" ng-class="{'label-important': outdated(item.returnDate)}">{{item.returnDate}}</span></td>
-        <td><button class="btn btn-info" ng-click="delete(item)"><i class="icon-check icon-white"></i> Retour</button></td>
+        <td><button class="btn btn-info pull-right" ng-click="archive(item)"><i class="icon-check icon-white"></i> Retour</button></td>
     </tr>
     </tbody>
 </table>
 
-<a class="btn btn-primary" href="#/share"><i class="icon-share icon-white"></i> Prêter</a>
-<a class="btn" href="#/history"><i class="icon-trash"></i> Historique</a>
+<a class="btn btn-primary btn-block" href="#/share"><i class="icon-share icon-white"></i> Prêter</a>
+<a class="btn btn-block" href="#/history"><i class="icon-trash"></i> Historique</a>

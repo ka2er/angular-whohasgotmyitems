@@ -4,6 +4,11 @@ angular.module('whohasgotmyitemApp')
   .controller('MainCtrl', function ($scope, Item) {
        $scope.items = Item.query();
 
+        $scope.notArchived = function() {
+            return function(item) {
+                return !item.archived || item.archived !== true;
+            };
+        };
 
         $scope.outdated = function(date) {
             var now = new Date();
@@ -13,13 +18,12 @@ angular.module('whohasgotmyitemApp')
 
             return (y < now.getFullYear()
                 || m < (now.getMonth()+1)
-                || d < now.getDay()
+                || d < now.getDate()
              );
         };
 
-        $scope.delete = function(item) {
-            item.$remove(function(){
-                $scope.items = Item.query();
-            });
+        $scope.archive = function(item) {
+            item.archived = true;
+            item.update();
         };
   });

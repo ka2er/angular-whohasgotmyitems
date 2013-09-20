@@ -1,1 +1,18 @@
-<p>This is the history view.</p>
+<h1>Historique</h1>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Objet</th>
+        <th>Nom</th>
+    </tr>
+    </thead>
+    <tbody class="muted">
+    <tr ng-repeat="item in items">
+        <td><s>{{item.name}}</s></td>
+        <td><s>{{item.who}}</s></td>
+    </tr>
+    </tbody>
+</table>
+
+<a class="btn btn-block" href="#/">Retour</a>
