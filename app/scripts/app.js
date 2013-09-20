@@ -18,4 +18,12 @@ angular.module('whohasgotmyitemApp', ['mongolabResource'])
       .otherwise({
         redirectTo: '/'
       });
-  });
+
+    }).constant({
+        //'API_KEY': 'PASTE_HERE_YOUR_API_KEY',
+        'DB_NAME': 'whohasgomyitems'
+    }).run(function($rootScope) {
+        // parameter for date format
+        $rootScope.dateFormat = "yyyy-MM-dd";
+    });
+
