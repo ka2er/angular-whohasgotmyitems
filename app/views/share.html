@@ -16,8 +16,7 @@
             <input type="text" placeholder="A qui ?" list="contacts" name="who" ng-model="item.who" ng-required="true">
 
             <datalist id="contacts">
-                <option value="Odile">
-                <option value="Seb">
+                <option ng-repeat="who in whoList" value="{{who}}"></option>
             </datalist>
         </div>
     </div>

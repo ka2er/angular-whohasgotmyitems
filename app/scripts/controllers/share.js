@@ -3,12 +3,16 @@
 angular.module('whohasgotmyitemApp')
   .controller('ShareCtrl', function ($scope, $location, Item) {
 
-        // prefil who .... TODO
-
         $scope.item = {};
         $scope.returnDelay = 7;
 
-        // Disable weekend selection
+        // prefill with known users
+        $scope.whoList = [];
+        Item.query({f:'{"who": 1}', s:'{"who" : 1}'}, function(items) {
+            items.forEach(function(item) {
+                $scope.whoList.push(item.who);
+            });
+        });
 
         $scope.save = function(){
             $scope.item.shareDate = new Date();
