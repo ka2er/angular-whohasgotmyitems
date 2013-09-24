@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('whohasgotmyitemApp')
-  .controller('ShareCtrl', function ($scope, $location, Item) {
+  .controller('ShareCtrl', function ($rootScope, $scope, $location, Item) {
 
         $scope.item = {};
         $scope.returnDelay = 7;
@@ -10,7 +10,9 @@ angular.module('whohasgotmyitemApp')
         $scope.whoList = [];
         Item.query({f:'{"who": 1}', s:'{"who" : 1}'}, function(items) {
             items.forEach(function(item) {
-                $scope.whoList.push(item.who);
+                if($scope.whoList.indexOf(item.who) === -1) {
+                    $scope.whoList.push(item.who);
+                }
             });
         });
 
@@ -19,6 +21,7 @@ angular.module('whohasgotmyitemApp')
             var today = new Date()
             today.setDate(today.getDate() + $scope.returnDelay);
             $scope.item.returnDate = today;
+            $scope.item.user = $rootScope.email;
 
             Item.save($scope.item);
             $location.path('/');

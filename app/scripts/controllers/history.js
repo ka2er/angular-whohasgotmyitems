@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('whohasgotmyitemApp')
-  .controller('HistoryCtrl', function ($scope, Item, $location) {
+  .controller('HistoryCtrl', function ($rootScope, $scope, Item, $location) {
 
-        $scope.items = Item.query({q:'{"archived":true}'});
+        $scope.items = Item.query({q:'{"archived":true, "user":"'+$rootScope.email+'"}'});
 
         $scope.remove = function(item) {
 

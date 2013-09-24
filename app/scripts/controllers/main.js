@@ -9,7 +9,7 @@ angular.module('whohasgotmyitemApp')
     }
 
 
-    $scope.items = Item.query();
+    $scope.items = Item.query({q:'{"user":"'+$rootScope.email+'"}'});
 
     $scope.notArchived = function() {
         return function(item) {
