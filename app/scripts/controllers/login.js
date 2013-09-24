@@ -22,8 +22,8 @@ angular.module('whohasgotmyitemApp')
                                 var endpoint = "https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token="+params.access_token;
                                 //var endpoint = "https://www.googleapis.com/plus/v1/people/me";
                                 $http.get(endpoint).success(function(data){
-                                    $rootScope.email = data.email;
-                                    localStorage['email'] = data.email;
+                                    $rootScope.email = localStorage['email'] = data.email;
+                                    if(data.given_name) $rootScope.nickName = localStorage['nickName'] = data.given_name;
                                     $location.path("/");
                                 });
 

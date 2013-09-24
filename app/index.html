@@ -27,7 +27,7 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <a ng-click="logout()" ng-show="email" class="pull-right">{{ email }} (déconnexion)</a>
+    <a ng-click="logout()" ng-show="email" class="pull-right">{{ nickName || email }} (déconnexion)</a>
     <h1>WhoHasGotMyItems</h1>
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>

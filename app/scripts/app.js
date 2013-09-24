@@ -41,11 +41,17 @@ angular.module('whohasgotmyitemApp', ['ngRoute', 'mongolabResource', 'googleOaut
         if(localStorage['email']) {
             $rootScope.email = localStorage['email'];
         }
+        if(localStorage['nickName']) {
+            $rootScope.nickName = localStorage['nickName'];
+        }
+
 
         $rootScope.logout = function() {
             localStorage.removeItem('email');
+            localStorage.removeItem('nickName');
             localStorage.removeItem('accessToken');
             delete $rootScope.email;
+            delete $rootScope.nickName;
             $location.path("/login");
         };
 

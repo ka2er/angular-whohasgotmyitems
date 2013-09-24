@@ -8,7 +8,7 @@ angular.module('whohasgotmyitemApp')
         $scope.remove = function(item) {
 
             item.remove(function(){
-                $scope.items = Item.query({q:'{"archived":true}'}, function(r) {
+                $scope.items = Item.query({q:'{"archived":true, "user":"'+$rootScope.email+'"}'}, function(r) {
                     if(r.length === 0) {
                         $location.path('/');
                     }
