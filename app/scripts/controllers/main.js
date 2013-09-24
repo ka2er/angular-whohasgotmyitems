@@ -1,7 +1,14 @@
 'use strict';
 
 angular.module('whohasgotmyitemApp')
-  .controller('MainCtrl', function ($scope, Item, $location) {
+  .controller('MainCtrl', function ($rootScope, $scope, Item, $location) {
+
+    if(! $rootScope.email ) {
+        $location.path('/login');
+        return;
+    }
+
+
     $scope.items = Item.query();
 
     $scope.notArchived = function() {
