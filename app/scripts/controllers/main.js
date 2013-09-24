@@ -25,8 +25,8 @@ angular.module('whohasgotmyitemApp')
         var d = +date.substr(8, 2);
 
         return (y < now.getFullYear()
-            || m < (now.getMonth()+1)
-            || d < now.getDate()
+            || (y <= now.getFullYear() && m < (now.getMonth()+1))
+            || (y <= now.getFullYear() && m <= (now.getMonth()+1) &&d < now.getDate())
          );
     };
 
